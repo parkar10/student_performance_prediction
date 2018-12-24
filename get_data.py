@@ -6,5 +6,5 @@ class GetData:
         
         rawDataDF = sc.read.option("header","true")\
         .option("delimiter", ";").option("inferSchema", value=True)\
-        .csv("dataset/student-mat.csv")
+        .csv("hdfs://localhost:9000/students_performance/student-mat.csv")
         return rawDataDF

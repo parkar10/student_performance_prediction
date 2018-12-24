@@ -1,0 +1,37 @@
+$ star-all.sh
+sh: 1: star-all.sh: not found
+$ start-all.sh
+This script is Deprecated. Instead use start-dfs.sh and start-yarn.sh
+Starting namenodes on [localhost]
+localhost: starting namenode, logging to /usr/local/hadoop/logs/hadoop-hadoop-namenode-muser.out
+localhost: starting datanode, logging to /usr/local/hadoop/logs/hadoop-hadoop-datanode-muser.out
+Starting secondary namenodes [0.0.0.0]
+0.0.0.0: starting secondarynamenode, logging to /usr/local/hadoop/logs/hadoop-hadoop-secondarynamenode-muser.out
+starting yarn daemons
+starting resourcemanager, logging to /usr/local/hadoop/logs/yarn-hadoop-resourcemanager-muser.out
+localhost: starting nodemanager, logging to /usr/local/hadoop/logs/yarn-hadoop-nodemanager-muser.out
+
+$ ls
+student-mat.csv  student-merge.R  student-por.csv  student.txt
+
+
+$ hadoop fs -ls /
+Found 2 items
+-rw-r--r--   1 hadoop supergroup          0 2018-12-18 18:38 /abc.txt
+drwxr-xr-x   - hadoop supergroup          0 2018-12-18 22:11 /sample
+
+
+$ hdfs dfs -mkdir /students_performance
+
+$ hdfs dfs -put student-mat.csv /students_performance/
+
+$ hdfs dfs -put student-por.csv /students_performance/
+
+$ hdfs dfs -put student.txt /students_performance/
+
+$ hadoop fs -ls /
+Found 3 items
+-rw-r--r--   1 hadoop supergroup          0 2018-12-18 18:38 /abc.txt
+drwxr-xr-x   - hadoop supergroup          0 2018-12-18 22:11 /sample
+drwxr-xr-x   - hadoop supergroup          0 2018-12-24 16:39 /students_performance
+$ 
